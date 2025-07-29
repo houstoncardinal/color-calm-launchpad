@@ -18,7 +18,30 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['Inter', 'system-ui', 'sans-serif'],
+				serif: ['Playfair Display', 'Georgia', 'serif'],
+			},
 			colors: {
+				// Core Brand Colors
+				'serenity-blue': 'hsl(var(--serenity-blue))',
+				'sage-harmony': 'hsl(var(--sage-harmony))',
+				'warm-embrace': 'hsl(var(--warm-embrace))',
+				'lavender-peace': 'hsl(var(--lavender-peace))',
+				'pure-clean': 'hsl(var(--pure-clean))',
+				
+				// Accent Colors
+				'ocean-trust': 'hsl(var(--ocean-trust))',
+				'forest-calm': 'hsl(var(--forest-calm))',
+				'sunset-warmth': 'hsl(var(--sunset-warmth))',
+				'plum-luxury': 'hsl(var(--plum-luxury))',
+				
+				// Text Colors
+				'text-primary': 'hsl(var(--text-primary))',
+				'text-secondary': 'hsl(var(--text-secondary))',
+				'text-light': 'hsl(var(--text-light))',
+				
+				// Standard System Colors
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
@@ -62,6 +85,16 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				}
+			},
+			backgroundImage: {
+				'gradient-hero': 'var(--gradient-hero)',
+				'gradient-calm': 'var(--gradient-calm)',
+				'gradient-trust': 'var(--gradient-trust)',
+			},
+			boxShadow: {
+				'soft': 'var(--shadow-soft)',
+				'elegant': 'var(--shadow-elegant)',
+				'luxury': 'var(--shadow-luxury)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

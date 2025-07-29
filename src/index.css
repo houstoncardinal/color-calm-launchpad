@@ -2,39 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Premium Color Theory Design System for Exclusive Pro Cleaning Services
+Based on calming, trust-building color psychology for overwhelmed moms and business owners
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core Brand Colors - Color Theory Based */
+    --serenity-blue: 200 80% 90%;        /* Soft trust-building blue */
+    --sage-harmony: 120 25% 85%;         /* Calming sage green */
+    --warm-embrace: 45 35% 92%;          /* Comforting warm neutral */
+    --lavender-peace: 260 20% 88%;       /* Peaceful lavender */
+    --pure-clean: 0 0% 98%;              /* Clean white */
+    
+    /* Accent Colors */
+    --ocean-trust: 200 60% 65%;          /* Deeper trust blue */
+    --forest-calm: 120 40% 45%;          /* Grounded green */
+    --sunset-warmth: 25 80% 75%;         /* Warm accent */
+    --plum-luxury: 280 30% 55%;          /* Luxury purple */
+    
+    /* Text Colors */
+    --text-primary: 220 25% 25%;         /* Sophisticated charcoal */
+    --text-secondary: 200 15% 45%;       /* Muted blue-gray */
+    --text-light: 0 0% 65%;              /* Light gray */
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--serenity-blue)), hsl(var(--lavender-peace)));
+    --gradient-calm: linear-gradient(180deg, hsl(var(--pure-clean)), hsl(var(--sage-harmony)));
+    --gradient-trust: linear-gradient(45deg, hsl(var(--ocean-trust)), hsl(var(--forest-calm)));
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px hsl(var(--ocean-trust) / 0.1);
+    --shadow-elegant: 0 8px 40px hsl(var(--lavender-peace) / 0.15);
+    --shadow-luxury: 0 12px 60px hsl(var(--plum-luxury) / 0.2);
+    
+    /* Standard Design System Mapping */
+    --background: var(--pure-clean);
+    --foreground: var(--text-primary);
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: var(--pure-clean);
+    --card-foreground: var(--text-primary);
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: var(--pure-clean);
+    --popover-foreground: var(--text-primary);
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: var(--ocean-trust);
+    --primary-foreground: var(--pure-clean);
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: var(--sage-harmony);
+    --secondary-foreground: var(--text-primary);
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: var(--warm-embrace);
+    --muted-foreground: var(--text-secondary);
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: var(--lavender-peace);
+    --accent-foreground: var(--text-primary);
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 75% 60%;
+    --destructive-foreground: var(--pure-clean);
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: var(--serenity-blue);
+    --input: var(--serenity-blue);
+    --ring: var(--ocean-trust);
 
     --radius: 0.5rem;
 
