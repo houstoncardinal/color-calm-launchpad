@@ -97,7 +97,7 @@ const ColorCalmMethodSection = () => {
         </div>
 
         {/* Benefits Grid */}
-        <div className="bg-gradient-calm rounded-3xl p-8 md:p-12">
+        <div className="bg-gradient-calm rounded-3xl p-8 md:p-12 shadow-floating border border-sage-harmony/20">
           <div className="text-center mb-12">
             <h3 className="text-3xl font-serif font-bold text-text-primary mb-4">
               Transform Your Life, Not Just Your Space
@@ -127,7 +127,7 @@ const ColorCalmMethodSection = () => {
 
         {/* Science Behind the Method */}
         <div className="mt-20 text-center">
-          <Card className="max-w-4xl mx-auto p-8 bg-warm-embrace/30 border-sage-harmony/30">
+          <Card className="max-w-4xl mx-auto p-8 bg-warm-embrace/40 border-sage-harmony/40 shadow-card hover:shadow-elegant transition-all duration-500">
             <div className="space-y-6">
               <div className="w-12 h-12 bg-gradient-trust rounded-xl mx-auto flex items-center justify-center">
                 <Brain className="w-6 h-6 text-pure-clean" />

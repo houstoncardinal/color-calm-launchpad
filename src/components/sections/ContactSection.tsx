@@ -29,10 +29,10 @@ const ContactSection = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-12">
+        <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <Card className="p-8 bg-gradient-calm border-serenity-blue/20 shadow-luxury">
+            <Card className="p-8 bg-gradient-calm border-serenity-blue/30 shadow-floating hover:shadow-luxury transition-all duration-500">
               <div className="space-y-8">
                 <div>
                   <h3 className="text-2xl font-serif font-bold text-text-primary mb-2">
@@ -161,14 +161,14 @@ const ContactSection = () => {
           {/* Contact Info & Quick Actions */}
           <div className="space-y-8">
             {/* Contact Info */}
-            <Card className="p-6 bg-warm-embrace/30 border-sage-harmony/20">
+            <Card className="p-6 bg-warm-embrace/40 border-sage-harmony/30 shadow-card hover:shadow-elegant transition-all duration-300">
               <h3 className="text-xl font-semibold text-text-primary mb-6">
                 Get in Touch
               </h3>
               
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-ocean-trust rounded-xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-ocean-trust rounded-xl flex items-center justify-center shadow-soft">
                     <Phone className="w-5 h-5 text-pure-clean" />
                   </div>
                   <div>
@@ -178,7 +178,7 @@ const ContactSection = () => {
                 </div>
                 
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-forest-calm rounded-xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-forest-calm rounded-xl flex items-center justify-center shadow-soft">
                     <Mail className="w-5 h-5 text-pure-clean" />
                   </div>
                   <div>
@@ -188,7 +188,7 @@ const ContactSection = () => {
                 </div>
                 
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-lavender-peace rounded-xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-lavender-peace rounded-xl flex items-center justify-center shadow-soft">
                     <MapPin className="w-5 h-5 text-text-primary" />
                   </div>
                   <div>
@@ -200,18 +200,18 @@ const ContactSection = () => {
             </Card>
 
             {/* Quick Actions */}
-            <Card className="p-6 bg-gradient-trust text-pure-clean">
+            <Card className="p-6 bg-gradient-trust text-pure-clean shadow-floating">
               <h3 className="text-xl font-semibold mb-4">
                 Need Help Right Now?
               </h3>
               
               <div className="space-y-4">
-                <Button variant="ghost" size="sm" className="w-full justify-start gap-3 text-pure-clean hover:bg-pure-clean/10">
+                <Button variant="ghost" size="sm" className="w-full justify-start gap-3 text-pure-clean hover:bg-pure-clean/10 transition-all duration-300">
                   <Phone className="w-4 h-4" />
                   Call Now for Same-Day Service
                 </Button>
                 
-                <Button variant="ghost" size="sm" className="w-full justify-start gap-3 text-pure-clean hover:bg-pure-clean/10">
+                <Button variant="ghost" size="sm" className="w-full justify-start gap-3 text-pure-clean hover:bg-pure-clean/10 transition-all duration-300">
                   <Calendar className="w-4 h-4" />
                   Schedule Online Consultation
                 </Button>
@@ -219,29 +219,29 @@ const ContactSection = () => {
             </Card>
 
             {/* Service Hours */}
-            <Card className="p-6 bg-serenity-blue/10 border-serenity-blue/20">
+            <Card className="p-6 bg-serenity-blue/15 border-serenity-blue/30 shadow-card hover:shadow-elegant transition-all duration-300">
               <h3 className="text-lg font-semibold text-text-primary mb-4 flex items-center gap-2">
                 <Clock className="w-5 h-5" />
                 Service Hours
               </h3>
               
-              <div className="space-y-2 text-sm">
-                <div className="flex justify-between">
+              <div className="space-y-3 text-sm">
+                <div className="flex justify-between items-center py-1">
                   <span className="text-text-secondary">Monday - Friday</span>
                   <span className="text-text-primary font-medium">8:00 AM - 6:00 PM</span>
                 </div>
-                <div className="flex justify-between">
+                <div className="flex justify-between items-center py-1">
                   <span className="text-text-secondary">Saturday</span>
                   <span className="text-text-primary font-medium">9:00 AM - 4:00 PM</span>
                 </div>
-                <div className="flex justify-between">
+                <div className="flex justify-between items-center py-1">
                   <span className="text-text-secondary">Sunday</span>
                   <span className="text-text-primary font-medium">Emergency Only</span>
                 </div>
               </div>
               
-              <div className="mt-4 pt-4 border-t border-serenity-blue/20">
-                <p className="text-xs text-text-secondary">
+              <div className="mt-4 pt-4 border-t border-serenity-blue/30">
+                <p className="text-xs text-text-secondary italic">
                   *Same-day service available for urgent needs
                 </p>
               </div>

@@ -78,7 +78,7 @@ const TestimonialsSection = () => {
         <div className="grid lg:grid-cols-2 gap-8 mb-16">
           {/* Featured Testimonial */}
           <div className="lg:row-span-2">
-            <Card className="h-full p-8 bg-pure-clean border-ocean-trust/20 shadow-luxury">
+            <Card className="h-full p-8 bg-pure-clean border-ocean-trust/30 shadow-floating hover:shadow-luxury transition-all duration-500 transform hover:scale-[1.01]">
               <div className="flex flex-col h-full space-y-6">
                 <div className="flex items-center gap-4">
                   <div className="w-16 h-16 bg-gradient-trust rounded-full flex items-center justify-center">
@@ -116,7 +116,7 @@ const TestimonialsSection = () => {
           {/* Other Testimonials */}
           <div className="space-y-8">
             {testimonials.slice(1).map((testimonial, index) => (
-              <Card key={index} className="p-6 bg-pure-clean border-serenity-blue/20 hover:shadow-soft transition-all duration-300">
+              <Card key={index} className="p-6 bg-pure-clean border-serenity-blue/30 shadow-card hover:shadow-floating transition-all duration-500 transform hover:scale-[1.02]">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <div className="flex">

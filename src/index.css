@@ -27,15 +27,35 @@ All colors MUST be HSL.
     --text-secondary: 200 15% 45%;       /* Muted blue-gray */
     --text-light: 0 0% 65%;              /* Light gray */
     
-    /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(var(--serenity-blue)), hsl(var(--lavender-peace)));
-    --gradient-calm: linear-gradient(180deg, hsl(var(--pure-clean)), hsl(var(--sage-harmony)));
-    --gradient-trust: linear-gradient(45deg, hsl(var(--ocean-trust)), hsl(var(--forest-calm)));
+    /* Enhanced Gradients for Luxury Feel */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--pure-clean)) 0%, hsl(var(--serenity-blue)) 50%, hsl(var(--lavender-peace)) 100%);
+    --gradient-calm: linear-gradient(180deg, hsl(var(--pure-clean)) 0%, hsl(var(--sage-harmony)) 100%);
+    --gradient-trust: linear-gradient(45deg, hsl(var(--ocean-trust)) 0%, hsl(var(--forest-calm)) 100%);
+    --gradient-luxury: linear-gradient(135deg, hsl(var(--plum-luxury)) 0%, hsl(var(--ocean-trust)) 100%);
+    --gradient-overlay: linear-gradient(135deg, hsl(var(--pure-clean) / 0.95) 0%, hsl(var(--serenity-blue) / 0.8) 50%, transparent 100%);
     
-    /* Shadows */
-    --shadow-soft: 0 4px 20px hsl(var(--ocean-trust) / 0.1);
-    --shadow-elegant: 0 8px 40px hsl(var(--lavender-peace) / 0.15);
-    --shadow-luxury: 0 12px 60px hsl(var(--plum-luxury) / 0.2);
+    /* Enhanced Shadows for Depth */
+    --shadow-soft: 0 4px 20px hsl(var(--ocean-trust) / 0.08);
+    --shadow-elegant: 0 8px 40px hsl(var(--lavender-peace) / 0.12);
+    --shadow-luxury: 0 20px 60px hsl(var(--plum-luxury) / 0.15);
+    --shadow-card: 0 4px 32px hsl(var(--ocean-trust) / 0.1);
+    --shadow-floating: 0 12px 48px hsl(var(--ocean-trust) / 0.18);
+    
+    /* Premium Spacing System */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2rem;
+    --space-xl: 3rem;
+    --space-2xl: 4rem;
+    --space-3xl: 6rem;
+    
+    /* Enhanced Border Radius */
+    --radius-sm: 0.75rem;
+    --radius-md: 1rem;
+    --radius-lg: 1.5rem;
+    --radius-xl: 2rem;
+    --radius-2xl: 2.5rem;
     
     /* Standard Design System Mapping */
     --background: var(--pure-clean);
@@ -129,7 +149,64 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  /* Prevent horizontal scroll on mobile */
+  .container, .max-w-7xl, .max-w-6xl, .max-w-5xl, .max-w-4xl, .max-w-3xl, .max-w-2xl {
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .container, .max-w-7xl, .max-w-6xl, .max-w-5xl, .max-w-4xl, .max-w-3xl, .max-w-2xl {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container, .max-w-7xl, .max-w-6xl, .max-w-5xl, .max-w-4xl, .max-w-3xl, .max-w-2xl {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  /* Enhance typography hierarchy */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar for webkit browsers */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--serenity-blue));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--ocean-trust));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--forest-calm));
   }
 }

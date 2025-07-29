@@ -74,8 +74,10 @@ const ServicesSection = () => {
           {services.map((service) => {
             const IconComponent = service.icon;
             return (
-              <Card key={service.id} className={`relative p-8 bg-pure-clean border-2 hover:shadow-luxury transition-all duration-300 ${
-                service.popular ? 'border-ocean-trust' : 'border-serenity-blue'
+              <Card key={service.id} className={`relative overflow-hidden bg-pure-clean hover:shadow-floating transition-all duration-500 transform hover:scale-[1.02] ${
+                service.popular 
+                  ? 'border-2 border-ocean-trust shadow-luxury' 
+                  : 'border border-serenity-blue/30 shadow-card'
               }`}>
                 {service.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
@@ -86,7 +88,7 @@ const ServicesSection = () => {
                   </div>
                 )}
                 
-                <div className="space-y-6">
+                <div className="p-8 space-y-6">
                   {/* Service Icon & Title */}
                   <div className="text-center">
                     <div className="w-16 h-16 bg-gradient-trust rounded-2xl mx-auto mb-4 flex items-center justify-center">
