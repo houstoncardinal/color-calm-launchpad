@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { RainbowButton } from "@/components/ui/rainbow-button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -46,9 +45,12 @@ const ContactSection = () => {
                   <label className="text-sm font-medium text-ocean-trust">How can we help?</label>
                   <Textarea placeholder="Tell us about your cleaning or organization needs..." className="border-ocean-trust/30 focus:border-ocean-trust min-h-[120px]" />
                 </div>
-                <RainbowButton className="w-full shadow-lg">
+                <Button 
+                  size="lg"
+                  className="bg-gradient-to-r from-ocean-trust to-emerald-600 text-white hover:shadow-glow transition-all duration-300 w-full shadow-lg"
+                >
                   Book Now
-                </RainbowButton>
+                </Button>
               </form>
             </Card>
           </div>

@@ -1,6 +1,5 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { RainbowButton } from "@/components/ui/rainbow-button";
 import { Phone, Calendar, Star, ArrowRight, CheckCircle, Clock, Shield, Sparkles, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -162,16 +161,16 @@ export default function ColorCalmMethodSection() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    <RainbowButton 
-                      variant="step"
-                      className="w-full py-3 px-4 rounded-xl transition-all duration-300 group-hover:scale-105 shadow-lg border-0 text-sm group-hover:shadow-2xl"
+                    <Button 
+                      size="lg"
+                      className="bg-gradient-to-r from-ocean-trust to-emerald-600 text-white hover:shadow-glow transition-all duration-300 w-full py-3 px-4 rounded-xl group-hover:scale-105 shadow-lg border-0 text-sm group-hover:shadow-2xl"
                       asChild
                     >
                       <a href={step.ctaLink} className="flex items-center justify-center gap-2">
                         {step.cta}
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                       </a>
-                    </RainbowButton>
+                    </Button>
                   </motion.div>
 
                   {/* Decorative corner element */}
@@ -194,8 +193,9 @@ export default function ColorCalmMethodSection() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <RainbowButton 
-                className="py-4 px-8 text-base font-semibold group"
+              <Button 
+                size="lg"
+                className="bg-gradient-to-r from-ocean-trust to-emerald-600 text-white hover:shadow-glow transition-all duration-300 py-4 px-8 text-base font-semibold group"
                 asChild
               >
                 <a href="#contact" className="flex items-center gap-3">
@@ -205,23 +205,24 @@ export default function ColorCalmMethodSection() {
                   <span>Book Your Free Consultation</span>
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </a>
-              </RainbowButton>
+              </Button>
             </motion.div>
             
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <RainbowButton 
-                variant="black"
-                className="py-4 px-8 text-base font-semibold group"
+              <Button 
+                variant="outline"
+                size="lg"
+                className="border-ocean-trust text-ocean-trust hover:bg-ocean-trust hover:text-white transition-all duration-300 py-4 px-8 text-base font-semibold group"
                 asChild
               >
                 <a href="#services" className="flex items-center gap-3">
                   <span>View All Services</span>
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </a>
-              </RainbowButton>
+              </Button>
             </motion.div>
           </div>
           

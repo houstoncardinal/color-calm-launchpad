@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { RainbowButton } from "@/components/ui/rainbow-button";
 import { Card } from "@/components/ui/card";
 import { Home, Building2, Palette, Clock, Shield, Star } from "lucide-react";
 
@@ -173,14 +172,15 @@ const ServicesSection = () => {
                         per visit
                       </span>
                     </div>
-                    <RainbowButton 
-                      className="w-full group-hover:scale-105 transition-all duration-300"
+                    <Button 
+                      size="lg"
+                      className="bg-gradient-to-r from-ocean-trust to-emerald-600 text-white hover:shadow-glow transition-all duration-300 w-full group-hover:scale-105"
                       asChild
                     >
                       <a href="#contact">
                         Get Free Quote
                       </a>
-                    </RainbowButton>
+                    </Button>
                   </div>
                 </div>
               </Card>

@@ -1,7 +1,6 @@
 import Navigation from "@/components/layout/Navigation";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { RainbowButton } from "@/components/ui/rainbow-button";
 import { Award, Users, Heart, Star, Shield, Clock } from "lucide-react";
 
 const About = () => {
@@ -88,9 +87,13 @@ const About = () => {
                 </p>
               </div>
               <div className="mt-8">
-                <RainbowButton asChild>
+                <Button 
+                  size="lg"
+                  className="bg-gradient-to-r from-ocean-trust to-emerald-600 text-white hover:shadow-glow transition-all duration-300"
+                  asChild
+                >
                   <a href="/contact">Start Your Transformation</a>
-                </RainbowButton>
+                </Button>
               </div>
             </div>
             <div className="relative">

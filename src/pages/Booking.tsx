@@ -1,7 +1,6 @@
 import Navigation from "@/components/layout/Navigation";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { RainbowButton } from "@/components/ui/rainbow-button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -237,9 +236,12 @@ const Booking = () => {
 
               {/* Submit Button */}
               <div className="pt-4">
-                <RainbowButton className="w-full text-lg py-6">
+                <Button 
+                  size="lg"
+                  className="bg-gradient-to-r from-ocean-trust to-emerald-600 text-white hover:shadow-glow transition-all duration-300 w-full text-lg py-6"
+                >
                   Schedule Free Consultation
-                </RainbowButton>
+                </Button>
                 <p className="text-center text-sm text-text-secondary mt-4">
                   We'll contact you within 24 hours to confirm your appointment
                 </p>

@@ -1,6 +1,6 @@
 import React from "react";
 import { TiltedScroll } from "@/components/ui/tilted-scroll";
-import { RainbowButton } from "@/components/ui/rainbow-button";
+import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 
@@ -82,15 +82,16 @@ export default function TransformBenefitsSection() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <RainbowButton 
-                    className="group flex items-center gap-2 font-semibold transition-all duration-300"
+                  <Button 
+                    size="lg"
+                    className="bg-gradient-to-r from-ocean-trust to-emerald-600 text-white hover:shadow-glow transition-all duration-300 group flex items-center gap-2 font-semibold"
                     asChild
                   >
                     <a href="#contact">
                       <span>Start Your Transformation Today</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                     </a>
-                  </RainbowButton>
+                  </Button>
                 </motion.div>
                 
                 <motion.a

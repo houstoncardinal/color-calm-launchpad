@@ -1,6 +1,6 @@
 import React from "react";
 import { Brain, Droplets, Moon, Heart, Zap, Sun, Leaf, Star, Sparkles } from "lucide-react";
-import { RainbowButton } from "@/components/ui/rainbow-button";
+import { Button } from "@/components/ui/button";
 
 const science = [
   {
@@ -149,8 +149,9 @@ export default function ColorPsychologyScienceSection() {
 
         {/* Enhanced CTA */}
         <div className="text-center">
-          <RainbowButton 
-            className="inline-flex items-center gap-3 px-8 py-4 font-medium group"
+          <Button 
+            size="lg"
+            className="bg-gradient-to-r from-ocean-trust to-emerald-600 text-white hover:shadow-glow transition-all duration-300 inline-flex items-center gap-3 px-8 py-4 font-medium group"
             asChild
           >
             <a href="#contact">
@@ -158,7 +159,7 @@ export default function ColorPsychologyScienceSection() {
               <span>Discover Your Perfect Color Palette</span>
               <Star className="w-4 h-4 group-hover:rotate-12 transition-transform duration-300" />
             </a>
-          </RainbowButton>
+          </Button>
         </div>
       </div>
     </section>
