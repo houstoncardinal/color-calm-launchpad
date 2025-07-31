@@ -4,9 +4,29 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Calendar, Clock, Home, Building2, Palette, Shield, Star, CheckCircle } from "lucide-react";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { Calendar, Clock, Home, Building2, Palette, Shield, Star, CheckCircle, Sparkles } from "lucide-react";
+import { motion, useMotionTemplate, useMotionValue, animate } from "framer-motion";
+import { useEffect } from "react";
 
 const Booking = () => {
+  // Enhanced motion values for beautiful gradients
+  const color = useMotionValue("#13FFAA");
+  const COLORS = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"];
+  
+  useEffect(() => {
+    animate(color, COLORS, {
+      ease: "easeInOut",
+      duration: 10,
+      repeat: Infinity,
+      repeatType: "mirror",
+    });
+  }, []);
+
+  const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, hsl(var(--pure-clean)) 35%, ${color})`;
+  const border = useMotionTemplate`1px solid ${color}`;
+  const boxShadow = useMotionTemplate`0px 8px 32px ${color}33`;
+
   const steps = [
     {
       step: "1",
@@ -50,21 +70,71 @@ const Booking = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-serene-mist via-white to-calming-sage">
+    <motion.div 
+      style={{ backgroundImage }}
+      className="min-h-screen relative overflow-hidden"
+    >
       <Navigation />
       
+      {/* Enhanced Floating Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div 
+          className="absolute top-24 right-16 w-80 h-80 bg-gradient-to-br from-ocean-trust/20 to-transparent rounded-full blur-3xl"
+          animate={{ 
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.6, 0.3],
+            x: [0, -40, 0],
+            y: [0, 30, 0]
+          }}
+          transition={{ duration: 14, repeat: Infinity }}
+        />
+        <motion.div 
+          className="absolute bottom-24 left-16 w-64 h-64 bg-gradient-to-br from-sage-harmony/30 to-transparent rounded-full blur-2xl"
+          animate={{ 
+            scale: [1.1, 1, 1.1],
+            opacity: [0.4, 0.7, 0.4],
+            x: [0, 50, 0],
+            y: [0, -30, 0]
+          }}
+          transition={{ duration: 11, repeat: Infinity }}
+        />
+        <motion.div 
+          className="absolute top-1/3 left-1/4 w-96 h-96 bg-gradient-to-br from-lavender-peace/15 to-transparent rounded-full blur-3xl"
+          animate={{ 
+            rotate: [0, 360],
+            scale: [1, 1.3, 1]
+          }}
+          transition={{ duration: 25, repeat: Infinity }}
+        />
+      </div>
+      
       {/* Hero Section */}
-      <section className="pt-32 pb-12">
+      <motion.section 
+        className="relative pt-32 pb-12 z-10"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
         <div className="max-w-4xl mx-auto px-4 sm:px-8 lg:px-12 text-center">
-          <h1 className="text-6xl font-extrabold font-serif text-ocean-trust mb-6 tracking-tight">
-            Book Your Service
-          </h1>
-          <p className="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
+          <motion.h1 
+            className="text-6xl font-extrabold font-serif text-ocean-trust mb-6 tracking-tight drop-shadow-lg"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+          >
+            <span className="bg-gradient-to-r from-ocean-trust to-plum-luxury bg-clip-text text-transparent">Book</span> Your Service
+          </motion.h1>
+          <motion.p 
+            className="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+          >
             Ready to transform your space with the Color Calm Method? Schedule your free consultation today 
             and discover how we can bring peace and organization to your home or business.
-          </p>
+          </motion.p>
         </div>
-      </section>
+      </motion.section>
 
       {/* Process Steps */}
       <section className="py-12">
@@ -265,7 +335,7 @@ const Booking = () => {
           </Button>
         </div>
       </section>
-    </div>
+    </motion.div>
   );
 };
 

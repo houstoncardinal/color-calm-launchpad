@@ -1,9 +1,29 @@
 import Navigation from "@/components/layout/Navigation";
 import ContactSection from "@/components/sections/ContactSection";
 import { Card } from "@/components/ui/card";
-import { MapPin, Clock, Phone, Mail, MessageCircle } from "lucide-react";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { MapPin, Clock, Phone, Mail, MessageCircle, Sparkles } from "lucide-react";
+import { motion, useMotionTemplate, useMotionValue, animate } from "framer-motion";
+import { useEffect } from "react";
 
 const Contact = () => {
+  // Enhanced motion values for beautiful gradients
+  const color = useMotionValue("#13FFAA");
+  const COLORS = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"];
+  
+  useEffect(() => {
+    animate(color, COLORS, {
+      ease: "easeInOut",
+      duration: 8,
+      repeat: Infinity,
+      repeatType: "mirror",
+    });
+  }, []);
+
+  const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, hsl(var(--pure-clean)) 40%, ${color})`;
+  const border = useMotionTemplate`1px solid ${color}`;
+  const boxShadow = useMotionTemplate`0px 8px 32px ${color}33`;
+
   const locations = [
     {
       area: "Central Houston",
@@ -28,58 +48,123 @@ const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-serene-mist via-white to-calming-sage">
+    <motion.div 
+      style={{ backgroundImage }}
+      className="min-h-screen relative overflow-hidden"
+    >
       <Navigation />
       
+      {/* Enhanced Floating Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div 
+          className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-ocean-trust/20 to-transparent rounded-full blur-3xl"
+          animate={{ 
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.6, 0.3],
+            x: [0, 40, 0],
+            y: [0, -30, 0]
+          }}
+          transition={{ duration: 12, repeat: Infinity }}
+        />
+        <motion.div 
+          className="absolute top-60 right-20 w-64 h-64 bg-gradient-to-br from-lavender-peace/30 to-transparent rounded-full blur-2xl"
+          animate={{ 
+            scale: [1.1, 1, 1.1],
+            opacity: [0.4, 0.7, 0.4],
+            x: [0, -30, 0],
+            y: [0, 50, 0]
+          }}
+          transition={{ duration: 10, repeat: Infinity }}
+        />
+        <motion.div 
+          className="absolute bottom-32 left-1/3 w-48 h-48 bg-gradient-to-br from-sage-harmony/40 to-transparent rounded-full blur-xl"
+          animate={{ 
+            rotate: [0, 360],
+            scale: [1, 1.3, 1]
+          }}
+          transition={{ duration: 18, repeat: Infinity }}
+        />
+      </div>
+      
       {/* Hero Section */}
-      <section className="pt-32 pb-12">
+      <motion.section 
+        className="relative pt-32 pb-12 z-10"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
         <div className="max-w-4xl mx-auto px-4 sm:px-8 lg:px-12 text-center">
-          <h1 className="text-6xl font-extrabold font-serif text-ocean-trust mb-6 tracking-tight">
-            Contact Us
-          </h1>
-          <p className="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
+          <motion.h1 
+            className="text-6xl font-extrabold font-serif text-ocean-trust mb-6 tracking-tight drop-shadow-lg"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+          >
+            <span className="bg-gradient-to-r from-ocean-trust to-lavender-peace bg-clip-text text-transparent">Contact</span> Us
+          </motion.h1>
+          <motion.p 
+            className="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+          >
             Ready to transform your space? We're here to help. Call us at <span className="font-bold text-ocean-trust">832-994-3724</span> 
             or fill out the form below for your free consultation.
-          </p>
+          </motion.p>
         </div>
-      </section>
+      </motion.section>
 
       {/* Quick Contact Options */}
-      <section className="py-12">
+      <section className="relative py-12 z-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12">
           <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <Card className="p-8 text-center bg-white shadow-elegant hover:shadow-glow transition-all duration-300">
-              <div className="w-16 h-16 bg-gradient-to-br from-ocean-trust to-emerald-400 rounded-2xl mx-auto mb-4 flex items-center justify-center">
-                <Phone className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-ocean-trust mb-2">Call Now</h3>
-              <a href="tel:832-994-3724" className="text-2xl font-bold text-ocean-trust hover:text-emerald-600 transition-colors">
-                832-994-3724
-              </a>
-              <p className="text-text-secondary text-sm mt-2">Mon-Fri 8AM-6PM</p>
-            </Card>
-
-            <Card className="p-8 text-center bg-white shadow-elegant hover:shadow-glow transition-all duration-300">
-              <div className="w-16 h-16 bg-gradient-to-br from-ocean-trust to-emerald-400 rounded-2xl mx-auto mb-4 flex items-center justify-center">
-                <MessageCircle className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-ocean-trust mb-2">Text Us</h3>
-              <a href="sms:832-994-3724" className="text-lg font-medium text-ocean-trust hover:text-emerald-600 transition-colors">
-                Send a Text
-              </a>
-              <p className="text-text-secondary text-sm mt-2">Quick responses</p>
-            </Card>
-
-            <Card className="p-8 text-center bg-white shadow-elegant hover:shadow-glow transition-all duration-300">
-              <div className="w-16 h-16 bg-gradient-to-br from-ocean-trust to-emerald-400 rounded-2xl mx-auto mb-4 flex items-center justify-center">
-                <Mail className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-ocean-trust mb-2">Email</h3>
-              <a href="mailto:hello@exclusivepro.com" className="text-lg font-medium text-ocean-trust hover:text-emerald-600 transition-colors">
-                hello@exclusivepro.com
-              </a>
-              <p className="text-text-secondary text-sm mt-2">24hr response</p>
-            </Card>
+            {[
+              { icon: Phone, title: "Call Now", href: "tel:832-994-3724", text: "832-994-3724", subtitle: "Mon-Fri 8AM-6PM" },
+              { icon: MessageCircle, title: "Text Us", href: "sms:832-994-3724", text: "Send a Text", subtitle: "Quick responses" },
+              { icon: Mail, title: "Email", href: "mailto:hello@exclusivepro.com", text: "hello@exclusivepro.com", subtitle: "24hr response" }
+            ].map((contact, index) => {
+              const IconComponent = contact.icon;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -8 }}
+                  className="group"
+                >
+                  <Card className="relative p-8 text-center bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-lg shadow-luxury hover:shadow-floating transition-all duration-500 border border-white/30 overflow-hidden">
+                    <GlowingEffect 
+                      disabled={false}
+                      spread={30}
+                      proximity={60}
+                      blur={0}
+                      borderWidth={2}
+                      movementDuration={2}
+                    />
+                    <motion.div 
+                      className="w-16 h-16 bg-gradient-to-br from-ocean-trust to-plum-luxury rounded-2xl mx-auto mb-4 flex items-center justify-center relative z-10 group-hover:scale-110 transition-transform duration-300"
+                      whileHover={{ rotate: 360 }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      <IconComponent className="w-8 h-8 text-white drop-shadow-lg" />
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/30 to-transparent rounded-2xl"></div>
+                    </motion.div>
+                    <h3 className="text-xl font-bold text-ocean-trust mb-2 relative z-10">{contact.title}</h3>
+                    <motion.a 
+                      href={contact.href} 
+                      className="text-lg font-medium text-ocean-trust hover:text-plum-luxury transition-colors relative z-10 block"
+                      whileHover={{ scale: 1.05 }}
+                      style={{ border, boxShadow }}
+                    >
+                      {contact.text}
+                    </motion.a>
+                    <p className="text-text-secondary text-sm mt-2 relative z-10">{contact.subtitle}</p>
+                  </Card>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -138,7 +223,7 @@ const Contact = () => {
           </a>
         </div>
       </section>
-    </div>
+    </motion.div>
   );
 };
 
