@@ -48,18 +48,18 @@ const Navigation = () => {
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-50 bg-white backdrop-blur-xl flex flex-col shadow-2xl">
-          <div className="flex items-center justify-between p-6 border-b border-ocean-trust/10">
+        <div className="fixed inset-0 z-50 bg-white flex flex-col shadow-elegant">
+          <div className="flex items-center justify-between p-6 border-b border-ocean-trust/10 bg-white">
             <img src="/logo.jpg" alt="Exclusive Pro Cleaning Services Logo" className="h-12 w-auto object-contain" />
             <button
-              className="p-2 rounded-xl text-ocean-trust hover:bg-emerald-50 transition-all focus:outline-none focus:ring-2 focus:ring-ocean-trust"
+              className="p-2 rounded-xl text-ocean-trust hover:bg-serene-mist transition-all focus:outline-none focus:ring-2 focus:ring-ocean-trust"
               onClick={() => setIsMobileMenuOpen(false)}
               aria-label="Close menu"
             >
               <X className="w-8 h-8" />
             </button>
           </div>
-          <div className="flex-1 p-6 bg-gradient-to-b from-white to-serene-mist">
+          <div className="flex-1 p-6 bg-white">
             <nav className="flex flex-col gap-2">
               <a href="/" className="py-4 px-4 rounded-xl hover:bg-white/80 transition-all text-lg font-medium text-ocean-trust flex items-center justify-between group" onClick={() => setIsMobileMenuOpen(false)}>
                 <span>Home</span>
