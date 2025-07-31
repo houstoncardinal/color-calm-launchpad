@@ -1,21 +1,26 @@
 import Navigation from "@/components/layout/Navigation";
-import HeroSection from "@/components/sections/HeroSection";
-import ServicesSection from "@/components/sections/ServicesSection";
+import FantasticHeroSection from "@/components/sections/fantastic-hero-section";
 import ColorCalmMethodSection from "@/components/sections/ColorCalmMethodSection";
-import TestimonialsSection from "@/components/sections/TestimonialsSection";
-import ContactSection from "@/components/sections/ContactSection";
+import StaggerTestimonialsSection from "@/components/sections/StaggerTestimonialsSection";
+import ColorPsychologyScienceSection from "@/components/sections/ColorPsychologyScienceSection";
+import TransformBenefitsSection from "@/components/sections/TransformBenefitsSection";
+import { Features } from "@/components/blocks/features-4";
+import { Footer } from "@/components/ui/large-name-footer";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      {/* New Navigation Bar */}
       <Navigation />
       <main>
-        <HeroSection />
-        <ServicesSection />
+        <FantasticHeroSection />
+        <Features />
+        <ColorPsychologyScienceSection />
+        <TransformBenefitsSection />
         <ColorCalmMethodSection />
-        <TestimonialsSection />
-        <ContactSection />
+        <StaggerTestimonialsSection />
       </main>
+      <Footer />
     </div>
   );
 };

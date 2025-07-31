@@ -1,170 +1,242 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Brain, Palette, Heart, ArrowRight, CheckCircle } from "lucide-react";
-import organizingImage from "@/assets/organizing-professional.jpg";
+import { RainbowButton } from "@/components/ui/rainbow-button";
+import { Phone, Calendar, Star, ArrowRight, CheckCircle, Clock, Shield, Sparkles, Zap } from "lucide-react";
+import { motion } from "framer-motion";
 
-const ColorCalmMethodSection = () => {
-  const steps = [
-    {
-      number: "01",
-      title: "Color Psychology Assessment",
-      description: "We analyze your space and lifestyle to determine the perfect color palette that promotes calm and productivity.",
-      icon: Brain,
-      color: "serenity-blue"
-    },
-    {
-      number: "02", 
-      title: "Strategic Organization Design",
-      description: "Using color theory principles, we create organization systems that feel natural and effortless to maintain.",
-      icon: Palette,
-      color: "sage-harmony"
-    },
-    {
-      number: "03",
-      title: "Mindful Space Transformation",
-      description: "We implement the system with premium cleaning and organization, creating your personal sanctuary.",
-      icon: Heart,
-      color: "lavender-peace"
-    }
-  ];
+const processSteps = [
+  {
+    number: "01",
+    title: "Book Your Consultation",
+    description: "Schedule a free 15-minute consultation to discuss your needs and get a personalized quote.",
+    icon: Phone,
+    color: "blue",
+    gradient: "from-blue-500 to-cyan-500",
+    cta: "Book Free Consultation",
+    ctaLink: "#contact"
+  },
+  {
+    number: "02", 
+    title: "Custom Service Plan",
+    description: "We create a tailored cleaning and organization plan based on your space, lifestyle, and preferences.",
+    icon: Calendar,
+    color: "green",
+    gradient: "from-emerald-500 to-teal-500",
+    cta: "View Service Plans",
+    ctaLink: "#services"
+  },
+  {
+    number: "03",
+    title: "Premium Service Delivery",
+    description: "Our certified team arrives on time, equipped with professional tools and eco-friendly products.",
+    icon: Star,
+    color: "purple",
+    gradient: "from-indigo-500 to-purple-500",
+    cta: "See Our Process",
+    ctaLink: "#process"
+  },
+  {
+    number: "04",
+    title: "Ongoing Support",
+    description: "Enjoy peace of mind with our maintenance plans and 24/7 customer support.",
+    icon: Shield,
+    color: "slate",
+    gradient: "from-slate-600 to-gray-600",
+    cta: "Join Maintenance Plan",
+    ctaLink: "#maintenance"
+  }
+];
 
-  const benefits = [
-    "Reduced stress and anxiety in your daily environment",
-    "Effortless organization that maintains itself",
-    "More quality time for family connection",
-    "Increased focus and mental clarity",
-    "A home that supports your wellbeing",
-    "Color-coded systems everyone can follow"
-  ];
-
+export default function ColorCalmMethodSection() {
   return (
-    <section id="method" className="py-20 bg-pure-clean">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-lavender-peace/20 rounded-full border border-lavender-peace/40 mb-6">
-            <Palette className="w-4 h-4 text-plum-luxury" />
-            <span className="text-sm font-medium text-text-primary">
-              Our Signature Method
+    <section id="method" className="py-12 bg-gradient-to-br from-slate-50 via-white to-blue-50/30 relative overflow-hidden">
+      {/* Enhanced Background Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-r from-blue-200/30 to-purple-200/30 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 left-20 w-80 h-80 bg-gradient-to-r from-green-200/30 to-blue-200/30 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-purple-200/20 to-pink-200/20 rounded-full blur-3xl animate-pulse delay-500"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/10 to-transparent"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Enhanced Header */}
+        <div className="text-center mb-10">
+          <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 text-gray-900 leading-tight">
+            Your Journey to a
+            <span className="block bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">
+              Cleaner Space
             </span>
-          </div>
-          
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-text-primary mb-6">
-            The Color Calm Method™
           </h2>
           
-          <p className="text-xl text-text-secondary max-w-4xl mx-auto leading-relaxed mb-8">
-            More than traditional cleaning, our method combines color psychology with professional organization 
-            to create spaces that naturally promote peace, reduce stress, and support your family's wellbeing.
+          <p className="text-lg text-gray-700 font-medium max-w-2xl mx-auto leading-relaxed mb-3">
+            Experience our streamlined booking process designed for busy professionals and families. 
+            From consultation to completion, we make premium cleaning services accessible and effortless.
           </p>
+          
+          <div className="inline-flex items-center gap-3 px-4 py-2 bg-gradient-to-r from-green-50 to-blue-50 rounded-full border border-green-200/50">
+            <CheckCircle className="w-4 h-4 text-green-600" />
+            <span className="text-xs font-medium text-gray-700">Free Consultation • Same-Day Booking • 100% Satisfaction</span>
+          </div>
         </div>
 
-        {/* Method Steps */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
-          <div className="space-y-8">
-            {steps.map((step, index) => (
-              <div key={index} className="flex gap-6">
-                <div className="flex-shrink-0">
-                  <div className={`w-16 h-16 bg-${step.color} rounded-2xl flex items-center justify-center`}>
-                    <step.icon className="w-8 h-8 text-text-primary" />
+        {/* Redesigned Process Steps with Circular Icons and Connecting Lines */}
+        <div className="relative mb-10">
+          {/* Connecting Lines */}
+          <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-200 via-emerald-200 to-slate-200 transform -translate-y-1/2 hidden lg:block">
+            <motion.div 
+              className="h-full bg-gradient-to-r from-blue-500 to-emerald-500"
+              initial={{ width: "0%" }}
+              whileInView={{ width: "100%" }}
+              transition={{ duration: 2, ease: "easeInOut" }}
+            />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4">
+            {processSteps.map((step, index) => (
+              <motion.div 
+                key={step.number}
+                className="relative group"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  duration: 0.6, 
+                  delay: index * 0.2,
+                  ease: "easeOut"
+                }}
+              >
+                {/* Circular Icon with Number */}
+                <div className="flex flex-col items-center text-center mb-4">
+                  <motion.div 
+                    className={`relative w-16 h-16 rounded-full bg-gradient-to-br ${step.gradient} flex items-center justify-center shadow-xl border-3 border-white group-hover:scale-110 transition-all duration-500 mb-4`}
+                    whileHover={{ 
+                      scale: 1.1,
+                      boxShadow: "0 15px 30px rgba(0,0,0,0.12)"
+                    }}
+                  >
+                    <step.icon className="w-6 h-6 text-white drop-shadow-sm" />
+                    
+                    {/* Animated ring effect */}
+                    <motion.div 
+                      className="absolute inset-0 rounded-full border-2 border-white/30"
+                      animate={{ 
+                        scale: [1, 1.2, 1],
+                        opacity: [0.5, 0, 0.5]
+                      }}
+                      transition={{ 
+                        duration: 2,
+                        repeat: Infinity,
+                        delay: index * 0.5
+                      }}
+                    />
+                  </motion.div>
+
+                  {/* Step Number Badge */}
+                  <div className="absolute -top-1 -right-1 lg:right-0 w-6 h-6 bg-gradient-to-r from-gray-700 to-gray-800 rounded-full flex items-center justify-center shadow-md border-2 border-white">
+                    <span className="text-white font-bold text-xs">{step.number}</span>
                   </div>
                 </div>
-                <div className="space-y-3">
-                  <div className="flex items-center gap-3">
-                    <span className="text-3xl font-serif font-bold text-ocean-trust">
-                      {step.number}
-                    </span>
-                    <h3 className="text-xl font-semibold text-text-primary">
+
+                {/* Content Card */}
+                <motion.div 
+                  className="bg-white/90 backdrop-blur-sm rounded-2xl p-5 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/50 relative overflow-hidden"
+                  whileHover={{ 
+                    y: -8,
+                    boxShadow: "0 20px 40px rgba(0,0,0,0.12)"
+                  }}
+                >
+                  {/* Decorative accent line */}
+                  <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${step.gradient} opacity-60 group-hover:opacity-100 transition-opacity duration-300`}></div>
+                  
+                  {/* Content */}
+                  <div className="relative z-10">
+                    <h3 className="text-lg font-bold text-gray-900 mb-3 font-display group-hover:text-gray-800 transition-colors">
                       {step.title}
                     </h3>
+                    <p className="text-sm text-gray-600 mb-4 leading-relaxed group-hover:text-gray-700 transition-colors">
+                      {step.description}
+                    </p>
                   </div>
-                  <p className="text-text-secondary leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
 
-          <div className="relative">
-            <img
-              src={organizingImage}
-              alt="Professional organizer demonstrating the Color Calm Method"
-              className="w-full h-full object-cover rounded-3xl shadow-luxury"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-ocean-trust/20 to-transparent rounded-3xl"></div>
+                  {/* Enhanced CTA Button */}
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <RainbowButton 
+                      variant="step"
+                      className="w-full py-3 px-4 rounded-xl transition-all duration-300 group-hover:scale-105 shadow-lg border-0 text-sm group-hover:shadow-2xl"
+                      asChild
+                    >
+                      <a href={step.ctaLink} className="flex items-center justify-center gap-2">
+                        {step.cta}
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                      </a>
+                    </RainbowButton>
+                  </motion.div>
+
+                  {/* Decorative corner element */}
+                  <div className={`absolute top-3 right-3 w-2 h-2 rounded-full bg-gradient-to-r ${step.gradient} opacity-20 group-hover:opacity-60 transition-opacity duration-300`}></div>
+                </motion.div>
+              </motion.div>
+            ))}
           </div>
         </div>
 
-        {/* Benefits Grid */}
-        <div className="bg-gradient-calm rounded-3xl p-8 md:p-12 shadow-floating border border-sage-harmony/20">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-serif font-bold text-text-primary mb-4">
-              Transform Your Life, Not Just Your Space
-            </h3>
-            <p className="text-text-secondary max-w-2xl mx-auto">
-              When your environment is designed with color psychology principles, 
-              every day becomes more peaceful, productive, and joyful.
+        {/* Enhanced Main CTA Section */}
+        <motion.div 
+          className="text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+        >
+          <div className="inline-flex flex-col sm:flex-row items-center gap-4 mb-6">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <RainbowButton 
+                className="py-4 px-8 text-base font-semibold group"
+                asChild
+              >
+                <a href="#contact" className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 transition-all">
+                    <Phone className="w-5 h-5" />
+                  </div>
+                  <span>Book Your Free Consultation</span>
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </a>
+              </RainbowButton>
+            </motion.div>
+            
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <RainbowButton 
+                variant="black"
+                className="py-4 px-8 text-base font-semibold group"
+                asChild
+              >
+                <a href="#services" className="flex items-center gap-3">
+                  <span>View All Services</span>
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </a>
+              </RainbowButton>
+            </motion.div>
+          </div>
+          
+          <motion.div 
+            className="inline-block p-4 bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl border border-green-200/50 shadow-lg"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 1 }}
+          >
+            <p className="text-sm font-medium text-gray-700">
+              ⭐ 4.9/5 rating from 500+ satisfied clients • Same-day availability • 100% satisfaction guarantee
             </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {benefits.map((benefit, index) => (
-              <div key={index} className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 text-forest-calm mt-1 flex-shrink-0" />
-                <span className="text-text-primary">{benefit}</span>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center">
-            <Button variant="luxury" size="xl" className="gap-3">
-              Experience the Color Calm Method
-              <ArrowRight className="w-5 h-5" />
-            </Button>
-          </div>
-        </div>
-
-        {/* Science Behind the Method */}
-        <div className="mt-20 text-center">
-          <Card className="max-w-4xl mx-auto p-8 bg-warm-embrace/40 border-sage-harmony/40 shadow-card hover:shadow-elegant transition-all duration-500">
-            <div className="space-y-6">
-              <div className="w-12 h-12 bg-gradient-trust rounded-xl mx-auto flex items-center justify-center">
-                <Brain className="w-6 h-6 text-pure-clean" />
-              </div>
-              
-              <h3 className="text-2xl font-serif font-bold text-text-primary">
-                The Science of Color Psychology
-              </h3>
-              
-              <p className="text-text-secondary leading-relaxed">
-                Research shows that colors directly impact our mood, stress levels, and cognitive function. 
-                Our certified color psychology approach creates environments that naturally support:
-              </p>
-              
-              <div className="grid md:grid-cols-3 gap-6 text-sm">
-                <div className="space-y-2">
-                  <div className="w-3 h-3 bg-serenity-blue rounded-full mx-auto"></div>
-                  <strong className="text-text-primary">Reduced Cortisol</strong>
-                  <p className="text-text-secondary">Calming blues lower stress hormones</p>
-                </div>
-                <div className="space-y-2">
-                  <div className="w-3 h-3 bg-sage-harmony rounded-full mx-auto"></div>
-                  <strong className="text-text-primary">Enhanced Focus</strong>
-                  <p className="text-text-secondary">Greens improve concentration and balance</p>
-                </div>
-                <div className="space-y-2">
-                  <div className="w-3 h-3 bg-lavender-peace rounded-full mx-auto"></div>
-                  <strong className="text-text-primary">Better Sleep</strong>
-                  <p className="text-text-secondary">Soft purples promote restful relaxation</p>
-                </div>
-              </div>
-            </div>
-          </Card>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
-};
-
-export default ColorCalmMethodSection;
+}

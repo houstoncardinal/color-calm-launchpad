@@ -15,32 +15,32 @@ All colors MUST be HSL.
     --warm-embrace: 45 35% 92%;          /* Comforting warm neutral */
     --lavender-peace: 260 20% 88%;       /* Peaceful lavender */
     --pure-clean: 0 0% 98%;              /* Clean white */
-    
+
     /* Accent Colors */
     --ocean-trust: 200 60% 65%;          /* Deeper trust blue */
     --forest-calm: 120 40% 45%;          /* Grounded green */
     --sunset-warmth: 25 80% 75%;         /* Warm accent */
     --plum-luxury: 280 30% 55%;          /* Luxury purple */
-    
+
     /* Text Colors */
     --text-primary: 220 25% 25%;         /* Sophisticated charcoal */
     --text-secondary: 200 15% 45%;       /* Muted blue-gray */
     --text-light: 0 0% 65%;              /* Light gray */
-    
+
     /* Enhanced Gradients for Luxury Feel */
     --gradient-hero: linear-gradient(135deg, hsl(var(--pure-clean)) 0%, hsl(var(--serenity-blue)) 50%, hsl(var(--lavender-peace)) 100%);
     --gradient-calm: linear-gradient(180deg, hsl(var(--pure-clean)) 0%, hsl(var(--sage-harmony)) 100%);
     --gradient-trust: linear-gradient(45deg, hsl(var(--ocean-trust)) 0%, hsl(var(--forest-calm)) 100%);
     --gradient-luxury: linear-gradient(135deg, hsl(var(--plum-luxury)) 0%, hsl(var(--ocean-trust)) 100%);
     --gradient-overlay: linear-gradient(135deg, hsl(var(--pure-clean) / 0.95) 0%, hsl(var(--serenity-blue) / 0.8) 50%, transparent 100%);
-    
+
     /* Enhanced Shadows for Depth */
     --shadow-soft: 0 4px 20px hsl(var(--ocean-trust) / 0.08);
     --shadow-elegant: 0 8px 40px hsl(var(--lavender-peace) / 0.12);
     --shadow-luxury: 0 20px 60px hsl(var(--plum-luxury) / 0.15);
     --shadow-card: 0 4px 32px hsl(var(--ocean-trust) / 0.1);
     --shadow-floating: 0 12px 48px hsl(var(--ocean-trust) / 0.18);
-    
+
     /* Premium Spacing System */
     --space-xs: 0.5rem;
     --space-sm: 1rem;
@@ -49,14 +49,14 @@ All colors MUST be HSL.
     --space-xl: 3rem;
     --space-2xl: 4rem;
     --space-3xl: 6rem;
-    
+
     /* Enhanced Border Radius */
     --radius-sm: 0.75rem;
     --radius-md: 1rem;
     --radius-lg: 1.5rem;
     --radius-xl: 2rem;
     --radius-2xl: 2.5rem;
-    
+
     /* Standard Design System Mapping */
     --background: var(--pure-clean);
     --foreground: var(--text-primary);
@@ -103,6 +103,16 @@ All colors MUST be HSL.
     --sidebar-border: 220 13% 91%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --color-1: 0 100% 63%;
+
+    --color-2: 270 100% 63%;
+
+    --color-3: 210 100% 63%;
+
+    --color-4: 195 100% 63%;
+
+    --color-5: 90 100% 63%;
   }
 
   .dark {
@@ -142,6 +152,10 @@ All colors MUST be HSL.
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+  .theme {
+    --animate-skew-scroll: skew-scroll 20s linear infinite;
+    --animate-rainbow: rainbow 4s ease-in-out infinite;
+  }
 }
 
 @layer base {
@@ -155,8 +169,7 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
-    font-family: 'Inter', system-ui, sans-serif;
+    @apply bg-background text-foreground font-sans;
   }
 
   /* Prevent horizontal scroll on mobile */
@@ -208,5 +221,62 @@ All colors MUST be HSL.
 
   ::-webkit-scrollbar-thumb:hover {
     background: hsl(var(--forest-calm));
+  }
+}
+
+/* ---break---
+*/
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Rainbow animation */
+@keyframes rainbow {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 200%;
+  }
+}
+
+/* Slower rainbow animation */
+.animate-rainbow {
+  animation: rainbow 4s ease-in-out infinite;
+}
+
+/* ---break---
+*/
+
+@theme inline {
+  @keyframes skew-scroll {
+  0% {
+    transform: rotateX(20deg) rotateZ(-20deg) skewX(20deg);
+    }
+  100% {
+    transform: rotateX(20deg) rotateZ(-20deg) skewX(20deg) translateY(-100%);
+    }
+  }
+  @keyframes skew-scroll {
+  0% {
+    transform: rotateX(20deg) rotateZ(-20deg) skewX(20deg);
+    }
+  100% {
+    transform: rotateX(20deg) rotateZ(-20deg) skewX(20deg) translateY(-100%);
+    }
+  }
+  @keyframes rainbow {
+  0% {
+    background-position: 0%;
+    }
+  100% {
+    background-position: 200%;
+    }
   }
 }
